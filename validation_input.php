@@ -29,15 +29,24 @@ function mediaSelected($type){
     }
 } ?>
 
+<!DOCTYPE html>
+<html class="no-js" lang="ja">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="">
+</head>
+<body>
+
 <form action= "<?= $_SERVER['PHP_SELF']; ?>" method="POST">
 名前：<input type="text" name="name" value= "<?= $name; ?>"><br>
-状態：<input type="checkbox" name="status" value="active" <?php if($status == "active"{ echo "checked"; } ?>)>公開<br>
-メディア形式：<selected name="media_type">
+状態：<input type="checkbox" name="status" value="active" <?php if($status == "active"){ echo "checked"; } ?>>公開<br>
+メディア形式：<select name="media_type">
     <option value="">選択してください</option>
     <option value="picture" <?php mediaSelected("picture"); ?>>静止画</option>
     <option value="audio" <?php mediaSelected("audio"); ?>>音声</option>
     <option value="movie" <?php mediaSelected("movie"); ?>>動画</option>
-</selected><br>
+</select><br>
 
 ファイル名：<input type="text" name="filename" value="<?= $filename; ?>"><br>
 見出し：<textarea name="caption"><?php $caption; ?></textarea><br>
@@ -45,3 +54,6 @@ function mediaSelected($type){
 <input type="hidden" name="tried" value="yes">
 <input type="submit" value="<?= $tried ? "続行" : "作成"; ?>">
 </form>
+
+</body>
+</html>
