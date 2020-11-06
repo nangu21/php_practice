@@ -31,4 +31,7 @@ Your Favorite Website:
 <p> <?= $form_message;?> </p> 
 
 ?>
-    
+
+
+//filter_var()については以下参照
+//https://www.php.net/manual/en/filter.filters.validate.php
