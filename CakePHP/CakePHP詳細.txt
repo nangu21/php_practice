@@ -1,0 +1,34 @@
+*MVC
+-Model -データ
+	・データベースのテーブル名に合わせたファイルを用意する
+		ex)posts -> App/ModelフォルダにPost.phpを用意
+-View -見た目	
+	・HTML
+		ex)postの一覧(index)のhtml
+		-> App/View/Postsフォルダのindex.ctp
+-Controller -架け橋(Modelに対する操作：データの書き込み)
+	・モデルに対して、どういうアクションが必要か
+		ex)index(一覧),View(詳細),add(追加),edit(編集),delete(削除)など
+	・App/Controllerフォルダの中に、モデルと対になるようにファイルを用意する
+		ex)Postモデルに対するコントローラー -> App/ControllerフォルダにPostsController.php
+		-> その中にアクションに対応するメソッド(クラス内の関数)を書いていく
+		-> public function index(){}など
+	・findメソッド
+		-> $this-> モデル->find('all');
+		->データベースから変数に格納するためのメソッド(Debugして中身を確認する)
+	・setメソッド
+		-> $this-> set(ビューで使う変数名、値);
+		->setしたものはviewで使える
+		
+*CoC　-Convention over Configuration(設定より規約が優先されるという意味)
+
+*Scaffold -おまけ機能
+	・Controllerに public $scaffold; と入れると一覧、登録、編集、削除管理画面を生成する
+
+*Debugの値
+	・Config/core.phpにDebug定数の値を指定できる
+		->2:SQLなどが出力される
+		->1:SQLは消えるがHTML最後に処理時間が出力される
+		->0:何も表示されない
+		->開発中は2、運用開始後は0とする
+	・core.phpの微調整もしておく(タイムゾーン、暗号化の種)
