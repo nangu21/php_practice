@@ -1,5 +1,5 @@
 <?php
-//400 * 400のイメージを描画c
+//400 * 400のイメージを描画
 $image = imagecreatetruecolor(400, 400);
 $white = imagecolorallocate($image, 0xFF, 0xFF, 0xFF);
 
