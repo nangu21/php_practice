@@ -2,7 +2,7 @@
 <html class="no-js" lang="ja">
 <head>
 <meta charset="utf-8">
-<title>progress-bar</title>
+<title>file_upload</title>
 <link rel="stylesheet" href="">
 <style>
     #preview img{
@@ -12,6 +12,7 @@
 </head>
 <body>
 
+<!--アップロードファイルの選択と送信フォーム-->
 <form enctype="multipart/form-data" action="" method="POST">
     <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
     アップロードファイル： <input type="file" name="userfile" /><br>
@@ -21,7 +22,8 @@
 <?php 
     if(is_uploaded_file($_FILES['userfile']['tmp_name'])){
         if(move_uploaded_file($_FILES['userfile']['tmp_name'], "files/".$_FILES['userfile']['name'])){
-            chmod("files/".$_FILES['userfile']['name'], 0644); //権限の付与
+            //権限の付与
+            chmod("files/".$_FILES['userfile']['name'], 0644);
             echo $_FILES['userfile']['name']. "をアップロードしました。";
 
             //画像のプレビュー
