@@ -17,7 +17,7 @@
 <?php 
     if(is_uploaded_file($_FILES['userfile']['tmp_name'])){
         if(move_uploaded_file($_FILES['userfile']['tmp_name'], "files/".$_FILES['userfile']['name'])){
-            chmod("files/".$_FILES['userfile']['name'], 0644);
+            chmod("files/".$_FILES['userfile']['name'], 0644); //権限の付与
             echo $_FILES['userfile']['name']. "をアップロードしました。";
         }else {
             echo "ファイルをアップロードできません。";
