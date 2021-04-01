@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <title>progress-bar</title>
 <link rel="stylesheet" href="">
+<style>
+    #preview img{
+        width: 100px;
+    }
+</style>
 </head>
 <body>
 
@@ -13,12 +18,14 @@
     <input type="submit" value="送信" name="submit" />
 </form>
 
-
 <?php 
     if(is_uploaded_file($_FILES['userfile']['tmp_name'])){
         if(move_uploaded_file($_FILES['userfile']['tmp_name'], "files/".$_FILES['userfile']['name'])){
             chmod("files/".$_FILES['userfile']['name'], 0644); //権限の付与
             echo $_FILES['userfile']['name']. "をアップロードしました。";
+
+            //画像のプレビュー
+            echo "<div id='preview'><img src='files/". $_FILES['userfile']['name'] ."'></div>";
         }else {
             echo "ファイルをアップロードできません。";
         }
