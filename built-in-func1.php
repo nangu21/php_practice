@@ -1,5 +1,4 @@
 <?php
-namespace Codecademy;
 
 $essay_one = "I really enjoyed the book. I thought the characters were really interesting. The plot of the novel was really engaging. I really felt the characters' emotions. They were really well-written. I really wish the ending had been different though.";
   
